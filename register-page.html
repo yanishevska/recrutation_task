@@ -230,6 +230,17 @@
    justify-content: center;
 }
 
+.map-button{
+  text-decoration: none;
+  background-color: #702eaa;
+  color: #fff;
+}
+
+.map-button:hover{
+  background-color: #aa79d2;
+  color: #fff;
+}
+
 /*Join page - Testimonials component*/
 
 .testimonials-wrapper {
@@ -697,6 +708,22 @@ span.lia-button-link-arrow.lia-button-link-arrow-black {
 <link rel="stylesheet preconnect" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script type="module">
+  const mapContent = document.querySelector(".map-content");
+  const createDiv = document.createElement('div');
+    mapContent.append(createDiv);
+
+  const createButton = document.createElement('a');
+    createButton.textContent ="Google maps";
+    createButton.href = "https://goo.gl/maps/mBiTdsHdhtkp1wSC9";
+    createButton.target = "_blank";
+    createButton.rel = "noopener noreferrer";
+    createButton.className = 'map-button lia-button';
+    createButton.style = 'font-size: 20px';
+    createDiv.append(createButton);
+</script>
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet preconnect">
 
 </head>
