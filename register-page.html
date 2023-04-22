@@ -121,12 +121,22 @@
     min-width: min-content;
 }
 
+@media (max-width: 900px) {
+  .benefits-content-list-element {
+    width: calc(100% / 3);
+}
+}
+
 .benefits-content-list-icon {
     padding-bottom: 10px;
 }
 
 .benefits-content-list-icon > img {
     height: 60px;
+}
+
+.benefits-content-list-icon > img:hover{
+    height: 61px;
 }
 
 .benefits-content-list-description, .benefits-content-list-description-blue {
