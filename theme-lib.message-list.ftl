@@ -32,6 +32,9 @@
    <#case "kudos">
        <#assign orderClause = "ORDER BY kudos.sum(weight) DESC " />
    <#break>
+   <#case "kudos_lowest">
+       <#assign orderClause = "ORDER BY kudos.sum(weight) ASC " />
+   <#break>
    <#case "views">
        <#assign orderClause = "ORDER BY metrics.views DESC " />
    <#break>
@@ -70,10 +73,11 @@
            <div class="custom-message-list-header-left">
                <select id="community-activity-sorted-by">
                    <option value="recent" <#if sorting == 'recent'>selected</#if>>${text.format("theme-lib.community-activity.recent")}</option>
-                    <option value="post_time" <#if sorting == 'post_time'>selected</#if>>${text.format("theme-lib.community-activity.post_time")}</option>
+                   <option value="post_time" <#if sorting == 'post_time'>selected</#if>>${text.format("theme-lib.community-activity.post_time")}</option>
                    <option value="views" <#if sorting == 'views'>selected</#if>>${text.format("theme-lib.community-activity.views")}</option>
                    <option value="replies" <#if sorting == 'replies'>selected</#if>>${text.format("theme-lib.community-activity.replies")}</option>
                    <option value="kudos" <#if sorting == 'kudos'>selected</#if>>${text.format("theme-lib.community-activity.kudos")}</option>
+                   <option value="kudos_lowest" <#if sorting == 'kudos_lowest'>selected</#if>>${text.format("theme-lib.community-activity.kudos_lowest")}</option>
                </select>
                <#if page.interactionStyle=="idea">
                  <@component id="custom.idea.status.label" />
