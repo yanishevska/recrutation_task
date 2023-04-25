@@ -41,6 +41,9 @@
    <#case "replies">
        <#assign orderClause = "ORDER BY replies.count(*) DESC " />
    <#break>
+   <#case "unanswered">
+       <#assign orderClause = "WHERE replies.count(*) = 0 " />
+   <#break>
     <#case "post_time">
        <#assign orderClause = "ORDER BY post_time DESC " />
    <#break>
@@ -76,6 +79,7 @@
                    <option value="post_time" <#if sorting == 'post_time'>selected</#if>>${text.format("theme-lib.community-activity.post_time")}</option>
                    <option value="views" <#if sorting == 'views'>selected</#if>>${text.format("theme-lib.community-activity.views")}</option>
                    <option value="replies" <#if sorting == 'replies'>selected</#if>>${text.format("theme-lib.community-activity.replies")}</option>
+                   <option value="unanswered" <#if sorting == 'unanswered'>selected</#if>>${text.format("theme-lib.community-activity.unanswered")}</option>
                    <option value="kudos" <#if sorting == 'kudos'>selected</#if>>${text.format("theme-lib.community-activity.kudos")}</option>
                    <option value="kudos_lowest" <#if sorting == 'kudos_lowest'>selected</#if>>${text.format("theme-lib.community-activity.kudos_lowest")}</option>
                </select>
