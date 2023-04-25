@@ -121,7 +121,7 @@
  
 <#-- render message tile in message list -->
 <#macro renderMessage msg showBoard=true isOdd=false isFirst=false isLast=false isFloated=false>
-   <#assign solved = "" />
+   <#assign solution = "" />
    <#assign unread = "" />
    <#assign floated = "" />
    <#assign escalated = "" />
@@ -143,9 +143,9 @@
        <#assign msg_status_txt = "theme-lib.general.thread-floated" />
    </#if>
    <#if msg.conversation.solved>
-       <#assign solved = "custom-thread-solved" />
-       <#assign msg_status_icon = "custom-thread-solved" />
-       <#assign msg_status_txt = "theme-lib.general.thread-solved" />
+       <#assign solution = "custom-thread-solution" />
+       <#assign msg_status_icon = "custom-thread-solution" />
+       <#assign msg_status_txt = "theme-lib.general.thread-solution" />
    </#if>
    <#if !msg.user_context.read>
        <#assign unread = "custom-thread-unread" />
@@ -157,7 +157,7 @@
    <#assign labels = commonUtils.executeLiQLQuery(qry)![] />
 
    <#-- custom message tile -->
-   <article class="custom-message-tile ${escalated} ${locked} ${solved} ${floated} ${requires_moderation} ${unread}">
+   <article class="custom-message-tile ${escalated} ${locked} ${solution} ${floated} ${requires_moderation} ${unread}">
        <#-- batch processing -->
        <#local showBatchProcessingCheckBox = "false"/>
        <#if user.registered>
@@ -179,7 +179,7 @@
         <div class="custom-message-header">
             <h3>
                 <#if msg.conversation.solved>
-                    <i class="${solved}"><small>${text.format('theme-lib.general.thread-solved')}!</small></i>
+                    <i class="${solution}"><small>${text.format('theme-lib.general.thread-solution')}!</small></i>
                 </#if>
                 <a href="${msg.view_href}" title="${msg.subject}">
                     <#--${utils.html.truncate(140, msg.subject, '...')}-->
