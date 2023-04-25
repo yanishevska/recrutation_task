@@ -44,6 +44,9 @@
    <#case "unanswered">
        <#assign orderClause = "WHERE replies.count(*) = 0 " />
    <#break>
+    <#case "no_solution">
+       <#assign orderClause = "WHERE conversation.solved = 0 " />
+   <#break>
     <#case "post_time">
        <#assign orderClause = "ORDER BY post_time DESC " />
    <#break>
@@ -82,6 +85,7 @@
                    <option value="unanswered" <#if sorting == 'unanswered'>selected</#if>>${text.format("theme-lib.community-activity.unanswered")}</option>
                    <option value="kudos" <#if sorting == 'kudos'>selected</#if>>${text.format("theme-lib.community-activity.kudos")}</option>
                    <option value="kudos_lowest" <#if sorting == 'kudos_lowest'>selected</#if>>${text.format("theme-lib.community-activity.kudos_lowest")}</option>
+                   <option value="no_solution" <#if sorting == 'no_solution'>selected</#if>>${text.format("theme-lib.community-activity.no_solution")}</option>
                </select>
                <#if page.interactionStyle=="idea">
                  <@component id="custom.idea.status.label" />
