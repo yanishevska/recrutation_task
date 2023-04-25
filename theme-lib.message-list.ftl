@@ -38,6 +38,9 @@
    <#case "replies">
        <#assign orderClause = "ORDER BY replies.count(*) DESC " />
    <#break>
+    <#case "post_time">
+       <#assign orderClause = "ORDER BY post_time DESC " />
+   <#break>
    <#default>
        <#assign orderClause = "ORDER BY conversation.last_post_time DESC " />
    <#break>
@@ -67,6 +70,7 @@
            <div class="custom-message-list-header-left">
                <select id="community-activity-sorted-by">
                    <option value="recent" <#if sorting == 'recent'>selected</#if>>${text.format("theme-lib.community-activity.recent")}</option>
+                    <option value="post_time" <#if sorting == 'post_time'>selected</#if>>${text.format("theme-lib.community-activity.post_time")}</option>
                    <option value="views" <#if sorting == 'views'>selected</#if>>${text.format("theme-lib.community-activity.views")}</option>
                    <option value="replies" <#if sorting == 'replies'>selected</#if>>${text.format("theme-lib.community-activity.replies")}</option>
                    <option value="kudos" <#if sorting == 'kudos'>selected</#if>>${text.format("theme-lib.community-activity.kudos")}</option>
